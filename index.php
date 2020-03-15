@@ -40,8 +40,8 @@ add_action( 'rest_api_init', function () {
 // Do the actual query and return the data
 function custom_meta_query(){
   $args = array(
-      'meta_key'   => 'color',
-      'meta_value' => 'blue'
+      'meta_key'   => 'featured',
+      'meta_value' => true
   );
   $query = new WP_Query( $args );
   return $query;
