@@ -63,5 +63,5 @@ function custom_meta_query(){
   );
   $page = new WP_Query( $args2 );
   $merged = array_merge($post, $page);
-  return $post;
+  return $page;
 }
