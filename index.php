@@ -12,18 +12,18 @@ function featured_content_register_post_meta() {
     ) );
 }
 add_action( 'init', 'featured_content_register_post_meta' );
-// 
-// function myguten_enqueue() {
-//     wp_enqueue_script(
-//         'myguten-script',
-//         plugins_url( 'build/index.js', __FILE__ ),
-//         array( 'wp-blocks', 'wp-element', 'wp-components' )
-//     );
-//
-//    wp_enqueue_style(
-//       'myguten-script',
-//       plugins_url( 'index.css', __FILE__ ),
-//       array()
-//    );
-// }
-// add_action( 'enqueue_block_editor_assets', 'myguten_enqueue' );
+
+function featured_content_enqueue() {
+    wp_enqueue_script(
+        'myguten-script',
+        plugins_url( 'build/index.js', __FILE__ ),
+        array( 'wp-blocks', 'wp-element', 'wp-components' )
+    );
+
+   wp_enqueue_style(
+      'myguten-script',
+      plugins_url( 'index.css', __FILE__ ),
+      array()
+   );
+}
+add_action( 'enqueue_block_editor_assets', 'featured_content_enqueue' );
