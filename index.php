@@ -49,7 +49,7 @@ function custom_meta_query(){
         'meta_value' => true
     );
     $query = new WP_Query( $args );
-    // $posts = array_merge($posts, $query);
+    $posts = array_merge($posts, $query);
   }
-  return $query;
+  return $posts;
 }
