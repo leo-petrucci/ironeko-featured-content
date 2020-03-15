@@ -42,7 +42,7 @@ function custom_meta_query(){
   $posts = [];
   $post_types = get_post_types();
 
-  foreach ($post_types as &$type) {
+  foreach ($post_types as $type) {
     $args = array(
         'post_type'    => $type,
         'meta_key'   => 'featured',
