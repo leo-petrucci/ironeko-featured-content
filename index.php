@@ -54,6 +54,8 @@ function custom_meta_query(){
   $full_posts = [];
   foreach ($posts as $post) {
     $post->thumbnail = get_the_post_thumbnail_url($post->ID, 'medium');
+    $post->content = "";
+    $post->description = get_post_meta($post->ID, '_yoast_wpseo_metadesc', true);
   }
   return $posts;
 }
