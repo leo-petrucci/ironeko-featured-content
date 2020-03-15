@@ -42,27 +42,27 @@ function custom_meta_query(){
   $posts = [];
   $post_types = get_post_types();
 
-  // foreach ($post_types as $type) {
-  //   $args = array(
-  //       'post_type'    => $type,
-  //       'meta_key'   => 'featured',
-  //       'meta_value' => true
-  //   );
-  //   $query = new WP_Query( $args );
-  //   array_push($posts, ...$query);
-  // }
-  $args = array(
-      'meta_key'   => 'featured',
-      'meta_value' => true
-  );
-  $post = new WP_Query( $args );
-  $args2 = array(
-      'post_type'    => 'page',
-      'meta_key'   => 'featured',
-      'meta_value' => true
-  );
-  $page = new WP_Query( $args2 );
-  $merged = array_merge($post, $page);
-  
-  return $post->posts;
+  foreach ($post_types as $type) {
+    $args = array(
+        'post_type'    => $type,
+        'meta_key'   => 'featured',
+        'meta_value' => true
+    );
+    $query = new WP_Query( $args );
+    array_push($posts, ...$query->posts);
+  }
+  // $args = array(
+  //     'meta_key'   => 'featured',
+  //     'meta_value' => true
+  // );
+  // $post = new WP_Query( $args );
+  // $args2 = array(
+  //     'post_type'    => 'page',
+  //     'meta_key'   => 'featured',
+  //     'meta_value' => true
+  // );
+  // $page = new WP_Query( $args2 );
+  // $merged = array_merge($post, $page);
+  //
+  return $posts;
 }
