@@ -27,3 +27,22 @@ function featured_content_enqueue() {
    );
 }
 add_action( 'enqueue_block_editor_assets', 'featured_content_enqueue' );
+
+// Register a REST route
+add_action( 'rest_api_init', function () {
+    //Path to meta query route
+    register_rest_route( 'ironeko/v2', '/featured/', array(
+            'methods' => 'GET',
+            'callback' => 'custom_meta_query'
+    ) );
+});
+
+// Do the actual query and return the data
+function custom_meta_query(){
+  $args = array(
+      'meta_key'   => 'color',
+      'meta_value' => 'blue'
+  );
+  $query = new WP_Query( $args );
+  return $query;
+}
