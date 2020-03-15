@@ -62,6 +62,6 @@ function custom_meta_query(){
       'meta_value' => true
   );
   $page = new WP_Query( $args );
-  $merged = merge_array($post, $page);
+  $merged = array_merge($post, $page);
   return $merged;
 }
