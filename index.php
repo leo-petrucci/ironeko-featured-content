@@ -56,12 +56,12 @@ function custom_meta_query(){
       'meta_value' => true
   );
   $post = new WP_Query( $args );
-  $args = array(
+  $args2 = array(
       'post_type'    => 'page',
       'meta_key'   => 'featured',
       'meta_value' => true
   );
-  $page = new WP_Query( $args );
+  $page = new WP_Query( $args2 );
   $merged = array_merge($post, $page);
-  return $merged;
+  return $post;
 }
