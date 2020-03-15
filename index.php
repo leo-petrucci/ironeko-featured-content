@@ -53,7 +53,7 @@ function custom_meta_query(){
   }
   $full_posts = [];
   foreach ($posts as $post) {
-    $found_post = get_post( $post->id );
+    $found_post = get_post( $post->ID );
     array_push($full_posts, $found_post);
   }
   return $full_posts;
