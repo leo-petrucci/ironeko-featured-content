@@ -51,18 +51,10 @@ function custom_meta_query(){
     $query = new WP_Query( $args );
     array_push($posts, ...$query->posts);
   }
-  // $args = array(
-  //     'meta_key'   => 'featured',
-  //     'meta_value' => true
-  // );
-  // $post = new WP_Query( $args );
-  // $args2 = array(
-  //     'post_type'    => 'page',
-  //     'meta_key'   => 'featured',
-  //     'meta_value' => true
-  // );
-  // $page = new WP_Query( $args2 );
-  // $merged = array_merge($post, $page);
-  //
-  return $posts;
+  $full_posts = [];
+  foreach ($posts as $post) {
+    $found_post = get_post( $post->id );
+    array_push($full_posts, $found_post);
+  }
+  return $full_posts;
 }
