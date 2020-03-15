@@ -40,7 +40,7 @@ add_action( 'rest_api_init', function () {
 // Do the actual query and return the data
 function custom_meta_query(){
   $args = array(
-      'post_type'    => '',
+      'post_type'    => 'page',
       'meta_key'   => 'featured',
       'meta_value' => true
   );
