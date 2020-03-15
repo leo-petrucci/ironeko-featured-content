@@ -39,11 +39,17 @@ add_action( 'rest_api_init', function () {
 
 // Do the actual query and return the data
 function custom_meta_query(){
-  $args = array(
-      'post_type'    => 'page',
-      'meta_key'   => 'featured',
-      'meta_value' => true
-  );
-  $query = new WP_Query( $args );
-  return $query;
+  $posts = [];
+  $post_types = get_post_types();
+
+  foreach ($post_types as &$type) {
+    $args = array(
+        'post_type'    => $type,
+        'meta_key'   => 'featured',
+        'meta_value' => true
+    );
+    $query = new WP_Query( $args );
+    $posts = array_merge($posts, $query);
+  }
+  return $posts;
 }
