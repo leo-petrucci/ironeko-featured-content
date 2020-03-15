@@ -53,8 +53,7 @@ function custom_meta_query(){
   }
   $full_posts = [];
   foreach ($posts as $post) {
-    $found_post = get_post( $post->ID );
-    array_push($full_posts, $found_post);
+    $post->thumbnail = get_the_post_thumbnail_url($post->ID, 'medium');
   }
-  return $full_posts;
+  return $posts;
 }
