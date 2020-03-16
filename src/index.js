@@ -24,7 +24,7 @@ registerBlockType( 'ironeko/featured-content', {
 
       const FeaturedRadio = withState( {
           featured: attributes.featured,
-      } )( ( { hasFixedBackground, setState } ) => (
+      } )( ( { featured, setState } ) => (
           <ToggleControl
               label="Is Featured Content?"
               help={ featured ? 'This is featured content.' : 'This is not featured content.' }
