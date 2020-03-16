@@ -28,7 +28,10 @@ registerBlockType( 'ironeko/featured-content', {
               label="Fixed Background"
               help={ hasFixedBackground ? 'Has fixed background.' : 'No fixed background.' }
               checked={ hasFixedBackground }
-              onChange={ () => setState( ( state ) => ( { hasFixedBackground: ! state.hasFixedBackground } ), updateFeatured(state.hasFixedBackground ) ) }
+              onChange={ () => setState( ( state ) => {
+                 return { hasFixedBackground: ! state.hasFixedBackground } 
+                 updateFeatured(state.hasFixedBackground)
+               } ) }
           />
       ) );
 
