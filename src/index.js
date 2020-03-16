@@ -16,9 +16,9 @@ registerBlockType( 'ironeko/featured-content', {
     },
 
     edit( { className, setAttributes, attributes } ) {
-      function updateFeatured( {option} ) {
-        console.log(`Setting value: ${option}`);
-        setAttributes( { featured: option } );
+      function updateFeatured( value ) {
+        console.log(`Setting value: ${value}`);
+        setAttributes( { featured: value } );
       }
 
       const FeaturedRadio = withState( {
@@ -29,8 +29,8 @@ registerBlockType( 'ironeko/featured-content', {
               help={ hasFixedBackground ? 'Has fixed background.' : 'No fixed background.' }
               checked={ hasFixedBackground }
               onChange={ () => setState( ( state ) => {
-                updateFeatured(state.hasFixedBackground)
-                return { hasFixedBackground: ! state.hasFixedBackground } 
+                updateFeatured(!state.hasFixedBackground)
+                return { hasFixedBackground: ! state.hasFixedBackground }
                } ) }
           />
       ) );
