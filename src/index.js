@@ -22,7 +22,7 @@ registerBlockType( 'ironeko/featured-content', {
       }
 
       const FeaturedRadio = withState( {
-          option: attributes.featured,
+          option: false,
       } )( ( { option, setState } ) => (
           <RadioControl
               label="Is this content featured?"
