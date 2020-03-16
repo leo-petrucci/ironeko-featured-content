@@ -32,7 +32,7 @@ registerBlockType( 'ironeko/featured-content', {
                   { label: 'False', value: false },
                   { label: 'True', value: true },
               ] }
-              onChange={ ( option ) => { setState( { option } ); updateFeatured({ option }) } }
+              onChange={ ( option ) => { setState( { option } ) } }
           />
       ) );
 
