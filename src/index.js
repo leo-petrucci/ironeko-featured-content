@@ -22,17 +22,13 @@ registerBlockType( 'ironeko/featured-content', {
       }
 
       const FeaturedRadio = withState( {
-          option: false,
-      } )( ( { option, setState } ) => (
-          <RadioControl
-              label="User type"
-              help="The type of the current user"
-              selected={ option }
-              options={ [
-                  { label: 'True', value: true },
-                  { label: 'False', value: false },
-              ] }
-              onChange={ ( option ) => { setState( { option } ) } }
+          hasFixedBackground: false,
+      } )( ( { hasFixedBackground, setState } ) => (
+          <ToggleControl
+              label="Fixed Background"
+              help={ hasFixedBackground ? 'Has fixed background.' : 'No fixed background.' }
+              checked={ hasFixedBackground }
+              onChange={ () => setState( ( state ) => ( { hasFixedBackground: ! state.hasFixedBackground } ), updateFeatured(state.hasFixedBackground ) ) }
           />
       ) );
 
