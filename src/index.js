@@ -22,7 +22,7 @@ registerBlockType( 'ironeko/featured-content', {
       }
 
       const FeaturedRadio = withState( {
-          hasFixedBackground: false,
+          hasFixedBackground: attributes.featured,
       } )( ( { hasFixedBackground, setState } ) => (
           <ToggleControl
               label="Fixed Background"
