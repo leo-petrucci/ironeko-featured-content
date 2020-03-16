@@ -22,15 +22,15 @@ registerBlockType( 'ironeko/featured-content', {
       }
 
       const FeaturedRadio = withState( {
-          option: 'a',
+          option: false,
       } )( ( { option, setState } ) => (
           <RadioControl
               label="User type"
               help="The type of the current user"
               selected={ option }
               options={ [
-                  { label: 'Author', value: 'a' },
-                  { label: 'Editor', value: 'e' },
+                  { label: 'True', value: true },
+                  { label: 'False', value: false },
               ] }
               onChange={ ( option ) => { setState( { option } ) } }
           />
