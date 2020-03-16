@@ -23,15 +23,15 @@ registerBlockType( 'ironeko/featured-content', {
       }
 
       const FeaturedRadio = withState( {
-          hasFixedBackground: attributes.featured,
+          featured: attributes.featured,
       } )( ( { hasFixedBackground, setState } ) => (
           <ToggleControl
-              label="Fixed Background"
-              help={ hasFixedBackground ? 'Has fixed background.' : 'No fixed background.' }
-              checked={ hasFixedBackground }
+              label="Is Featured Content?"
+              help={ featured ? 'This is featured content.' : 'This is not featured content.' }
+              checked={ featured }
               onChange={ () => setState( ( state ) => {
-                updateFeatured(!state.hasFixedBackground)
-                return { hasFixedBackground: ! state.hasFixedBackground }
+                updateFeatured(!state.featured)
+                return { featured: ! state.featured }
                } ) }
           />
       ) );
