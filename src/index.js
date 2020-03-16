@@ -1,5 +1,5 @@
 import { registerBlockType } from '@wordpress/blocks';
-import { RadioControl } from '@wordpress/components';
+import { ToggleControl } from '@wordpress/components';
 import { withState } from '@wordpress/compose';
 
 registerBlockType( 'ironeko/featured-content', {
