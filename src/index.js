@@ -22,18 +22,15 @@ registerBlockType( 'ironeko/featured-content', {
         console.log(attributes)
       }
 
-      const FeaturedRadio = ( { featured } ) => (
-          <ToggleControl
-              label="Is Featured Content?"
-              help={ featured ? 'This is featured content.' : 'This is not featured content.' }
-              checked={ featured }
-              onChange={ () => updateFeatured(!featured) }
-          />
-      );
 
       return (
           <div style={{ padding: '0.5rem', flex: 1, flexDirection: 'row' }}>
-            <FeaturedRadio featured={attributes.featured}/>
+            <ToggleControl
+                label="Is Featured Content?"
+                help={ attributes.featured ? 'This is featured content.' : 'This is not featured content.' }
+                checked={ attributes.featured }
+                onChange={ () => updateFeatured(!attributes.featured) }
+            />
           </div>
       );
     },
