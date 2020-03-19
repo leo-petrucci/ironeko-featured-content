@@ -10,11 +10,6 @@ function featured_content_register_post_meta() {
         'single' => true,
         'type' => 'boolean',
     ) );
-    register_post_meta( '', 'featuredtest', array(
-        'show_in_rest' => true,
-        'single' => true,
-        'type' => 'string',
-    ) );
 }
 add_action( 'init', 'featured_content_register_post_meta' );
 
