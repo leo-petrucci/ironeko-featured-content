@@ -7,7 +7,7 @@
 function featured_content_register_post_meta() {
     register_post_meta( '', 'featured', array(
         'show_in_rest' => true,
-        'single' => true,
+        'single' => false,
         'type' => 'boolean',
     ) );
 }
