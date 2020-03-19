@@ -10,18 +10,23 @@ function featured_content_register_post_meta() {
         'single' => false,
         'type' => 'boolean',
     ) );
+    register_post_meta( '', 'featuredtest', array(
+        'show_in_rest' => true,
+        'single' => true,
+        'type' => 'string',
+    ) );
 }
 add_action( 'init', 'featured_content_register_post_meta' );
 
 function featured_content_enqueue() {
     wp_enqueue_script(
-        'myguten-script',
+        'featured-script-js',
         plugins_url( 'build/index.js', __FILE__ ),
         array( 'wp-blocks', 'wp-element', 'wp-components' )
     );
 
    wp_enqueue_style(
-      'myguten-script',
+      'featured-script-css',
       plugins_url( 'index.css', __FILE__ ),
       array()
    );

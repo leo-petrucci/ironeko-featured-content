@@ -18,7 +18,7 @@ registerBlockType( 'ironeko/featured-content', {
     edit( { className, setAttributes, attributes } ) {
       function updateFeatured( value ) {
         console.log(`Setting value: ${value}`);
-        setAttributes( { featured: false } );
+        setAttributes( { featured: value } );
         console.log(attributes)
       }
 
