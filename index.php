@@ -37,11 +37,6 @@ add_action( 'rest_api_init', function () {
     ) );
 });
 
-$type_conversion = (object) [
-  'post' => 'posts',
-  'page' => 'pages',
-  'featured' => 'featured-sites',
-];
 
 // Do the actual query and return the data
 function custom_meta_query(){
@@ -58,9 +53,16 @@ function custom_meta_query(){
     array_push($posts, ...$query->posts);
   }
   $full_posts = [];
+
+  $type_conversion = (object) [
+    'post' => 'posts',
+    'page' => 'pages',
+    'featured' => 'featured-sites',
+  ];
+
   foreach ($posts as $post) {
     $prop = $post->post_type;
-    $post->type = echo $type_conversion->$prop;
+    $post->type = $type_conversion->$prop;
     $post->thumbnail = get_the_post_thumbnail_url($post->ID, 'large');
     $post->post_content = "";
     $post->description = get_post_meta($post->ID, '_yoast_wpseo_metadesc', true);
