@@ -37,6 +37,12 @@ add_action( 'rest_api_init', function () {
     ) );
 });
 
+$type_conversion = (object) [
+  'post' => 'posts',
+  'page' => 'pages',
+  'featured' => 'featured-sites',
+];
+
 // Do the actual query and return the data
 function custom_meta_query(){
   $posts = [];
@@ -49,7 +55,8 @@ function custom_meta_query(){
         'meta_value' => true
     );
     $query = new WP_Query( $args );
-    $query->posts->type = $type;
+    $prop = 'post';
+    $query->posts->type = $type_conversion->$prop;
     array_push($posts, ...$query->posts);
   }
   $full_posts = [];
