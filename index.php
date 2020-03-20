@@ -56,7 +56,7 @@ function custom_meta_query(){
     );
     $query = new WP_Query( $args );
     $prop = 'post';
-    $query->posts->type = $type_conversion->$prop;
+    $query->posts_type = $type_conversion->$prop;
     array_push($posts, ...$query->posts);
   }
   $full_posts = [];
