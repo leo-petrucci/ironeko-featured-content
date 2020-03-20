@@ -60,7 +60,7 @@ function custom_meta_query(){
   $full_posts = [];
   foreach ($posts as $post) {
     $prop = $post->post_type;
-    $query->type = $type_conversion->$prop;
+    $post->type = $type_conversion->$prop;
     $post->thumbnail = get_the_post_thumbnail_url($post->ID, 'large');
     $post->post_content = "";
     $post->description = get_post_meta($post->ID, '_yoast_wpseo_metadesc', true);
