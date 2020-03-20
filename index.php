@@ -49,6 +49,7 @@ function custom_meta_query(){
         'meta_value' => true
     );
     $query = new WP_Query( $args );
+    $query->posts->type = $type;
     array_push($posts, ...$query->posts);
   }
   $full_posts = [];
